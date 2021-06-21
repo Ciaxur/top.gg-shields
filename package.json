@@ -1,0 +1,38 @@
+{
+  "name": "top.gg-badge",
+  "version": "1.0.0",
+  "description": "Generates badge for top.gg availability",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "start": "node ./build",
+    "compile": "shx rm -rf lib/ && tsc",
+    "postinstall": "tsc",
+    "start-dev": " concurrently \"tsc --watch\" \"nodemon build\" "
+  },
+  "keywords": [
+    "badge",
+    "shiled",
+    "top.gg"
+  ],
+  "author": "Omar Omar",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "morgan": "^1.10.0",
+    "typescript": "^4.3.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.12",
+    "@types/morgan": "^1.9.2",
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7",
+    "shx": "^0.3.3"
+  }
+}
