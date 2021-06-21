@@ -25,7 +25,10 @@ app.get('/:id', async (req, res) => {
     await axios.get(`https://top.gg/bot/${id}`);
     return axios.get('https://img.shields.io/badge/Tog.gg-Available-green')
       .then(res => res.data)
-      .then(badgeData => res.send(badgeData))
+      .then(badgeData => res
+        .set('content-type', 'image/svg+xml;charset=utf-8')
+        .send(badgeData),
+      )
       .catch(err => {
         console.log('Error:', err);
         return res
@@ -40,7 +43,10 @@ app.get('/:id', async (req, res) => {
   catch(e) {
     return axios.get('https://img.shields.io/badge/Tog.gg-Unavailable-red')
       .then(res => res.data)
-      .then(badgeData => res.send(badgeData))
+      .then(badgeData => res
+        .set('content-type', 'image/svg+xml;charset=utf-8')
+        .send(badgeData),
+      )
       .catch(err => {
         console.log('Error:', err);
         return res
